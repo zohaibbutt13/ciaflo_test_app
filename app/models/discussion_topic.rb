@@ -5,4 +5,6 @@ class DiscussionTopic < ActiveRecord::Base
   belongs_to :user
   belongs_to :campaign
   has_many   :comments, as: :commentable, dependent: :destroy
+
+  accepts_nested_attributes_for :comments
 end

@@ -7,12 +7,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :discussion_topics, only: [:create]
+  resources :discussion_topics, only: [:create] do
+    member do
+      post :add_comment
+    end
+  end
   resources :comments,          only: [:create]
   resources :tags,              only: [:create]
   resources :campaigns,         only: [:create] do
     member do
-      post :add_tag
+      post :add_comment
     end
   end
 end
