@@ -7,4 +7,6 @@ class Campaign < ActiveRecord::Base
   has_many   :tags, through: :campaign_tags
   has_many   :comments, as: :commentable, dependent: :destroy
   has_many   :discussion_topics
+
+  accepts_nested_attributes_for :comments
 end
